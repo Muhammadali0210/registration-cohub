@@ -13,7 +13,7 @@
                     <label  class="profil-text" for="familiya">Familiya</label>
                     <input type="text " id="familiya" v-model="data.Lastname" class="profile-input" text="Ism" placeholder="Familiyangizni kiriting...">
                     <label  class="profil-text" for="number">Telefon nomer</label>
-                    <input type="text " id="number" v-model="data.phone" value="+998" class="profile-input" text="Ism" placeholder="Telefon nomeringizni kiriting...">
+                    <input type="number" id="number" v-model="data.phone" class="profile-input" text="Ism" value="+998" placeholder="Telefon nomeringizni kiriting...">
                     <button type="submit" class="btn">Yuborish</button>
                 </form>
                 <div class="telegram" v-if="!form">
@@ -184,7 +184,7 @@ input{
 .profile-input{
     width: 100%;
     background-color: #F2F6F7;
-    color: #555;
+    color: #1d1d1d;
     padding: 12px 20px;
     font-weight: 400;
     font-size: 14px;
