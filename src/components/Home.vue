@@ -15,7 +15,10 @@
                     <label  class="profil-text" for="number">Telefon nomer</label>
                     <div class="number-content">
                         <div class="number-box">+998</div>
-                        <input type="number" id="number"   v-model="data.phone" style="padding-left: 70px ;" class="profile-input change" text="Ism" value="+998" placeholder="xx-xxx-xx-xx">
+                        <input type="number" id="number"  v-model="data.phone" style="padding-left: 70px ;" class="profile-input change" text="Ism" placeholder="xx-xxx-xx-xx"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength = "9"
+                        >
                     </div>
                     <button type="submit" class="btn">Yuborish</button>
                 </form>
