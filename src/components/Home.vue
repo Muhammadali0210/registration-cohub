@@ -13,12 +13,15 @@
                     <label  class="profil-text" for="familiya">Familiya</label>
                     <input type="text " id="familiya" v-model="data.Lastname" class="profile-input" text="Ism" placeholder="Familiyangizni kiriting...">
                     <label  class="profil-text" for="number">Telefon nomer</label>
-                    <input type="number" id="number" v-model="data.phone" class="profile-input" text="Ism" value="+998" placeholder="Telefon nomeringizni kiriting...">
+                    <div class="number-content">
+                        <div class="number-box">+998</div>
+                        <input type="number" id="number"   v-model="data.phone" style="padding-left: 70px ;" class="profile-input change" text="Ism" value="+998" placeholder="xx-xxx-xx-xx">
+                    </div>
                     <button type="submit" class="btn">Yuborish</button>
                 </form>
                 <div class="telegram" v-if="!form">
                     <h3>Endi telegram kanalimizga qo'shilib olishingiz mumkin <img src="../images/Animation.gif" width="50px" height="50px" alt=""></h3>
-                    <a href="https://t.me/sammi_community">
+                    <a href="https://t.me/+QtVVa8ikF-cwNTQy">
                         <button type="button" class="btn">
                         <img src="../images/telegram.png" alt="t" width="30px" height="30px">
                         Telegram
@@ -85,6 +88,18 @@ export default {
 };
 </script>
 <style>
+.number-content{
+    position: relative;
+}
+.number-box{
+    position: absolute;
+    top: 22px;
+    left: 18px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
 a{
     text-decoration: none;
 }
@@ -192,6 +207,9 @@ input{
     margin:10px 0 20px;
     border-radius: 6px;
     border: 1px solid #222;
+}
+.profile-input:focus{
+    border: 1px solid #0078EA;
 }
 .profil-text{
     color: #ededed;
