@@ -20,7 +20,10 @@
                             maxlength = "9"
                         >
                     </div>
-                    <button type="submit" class="btn">Yuborish</button>
+                    <div class="dis">
+                        <div class="disabled" v-if="disabled"></div>
+                        <button :disabled="disabled" type="submit" class="btn" @click="buttonVisable()">Yuborish</button>
+                    </div>
                 </form>
                 <div class="telegram" v-if="!form">
                     <h3>Endi telegram kanalimizga qo'shilib olishingiz mumkin <img src="../images/Animation.gif" width="50px" height="50px" alt=""></h3>
@@ -47,13 +50,20 @@ export default {
                 "Lastname": "",
                 "phone": "",
             },
-            form: true
+            form: true,
+            disabled: false
         }
     },
     methods: {
+        buttonVisable(){
+            if(this.disabled){
+                alert("click")
+                this.disabled = true
+            }
+        },
         submitForm() {
             console.log(this.data)
-            axios.post('https://ilkham.uz/api/coHub', this.data, {
+            axios.post('https://muslim-logistic.uz/api/coHub', this.data, {
                 headers: {
                     'accept': 'application/json',
                     'Authorization': 'Bearer 2|OTufZWXaddSTG87K8KFk8XpsYsY5YcI1CxNpvjAq4b214811'
@@ -63,6 +73,8 @@ export default {
                 if(response.status==200){
                     this.toast()
                     this.form = false
+                } else {
+                    alert("Malumot yuborilmadi")
                 }
             })
             .catch(error => {
@@ -91,6 +103,20 @@ export default {
 };
 </script>
 <style>
+.dis{
+    position: relative;
+}
+.dis .disabled{
+    top: 0;
+    position: absolute;
+    /* bottom: 0; */
+    width: 100%;
+    height: 43px;
+    border-radius: 5px;
+    background-color: #ffffffa7;
+    z-index: 70;
+}
+
 .number-content{
     position: relative;
 }
